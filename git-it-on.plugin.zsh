@@ -67,7 +67,7 @@ git_open_file() {
     local zone='blob'
   fi
 
-  local file=$(echo "$(cd $cdtohere; pwd)" | cut -c "$((1+${#$(git rev-parse --show-toplevel)}))-")
+  local file=$(echo "$(builtin cd $cdtohere; pwd)" | cut -c "$((1+${#$(git rev-parse --show-toplevel)}))-")
   url="$url/$zone/$branch$file"
 
   if [ -d $1 ]; then
